@@ -46,14 +46,10 @@
         je m'inscris
       </button>
     </div>
-    <div class="bground">
+    <div class="bground" id="modal-form">
       <div class="content">
-        <span class="close"></span>
+        <span class="close" id="close-modal-form"></span>
         <div class="modal-body">
-          <div class="d-none msg-confirmation">
-             <p>Merci pour votre inscription</p>
-             <button class="btn-confirmation">Fermer</button>
-          </div>
           <form name="reserve" action="index.html" method="get" id="reserve">
             <div class="formData">
               <label for="firstname">Prénom</label><br>
@@ -125,6 +121,17 @@
             </div>
             <input class="btn-submit" type="submit" class="button" value="C'est parti" />
           </form>
+        </div>
+      </div>
+    </div>
+    <div class="bground" id="modal-confirmation">
+      <div class="content">
+        <span class="close" id="close-modal-confirmation"></span>
+        <div class="modal-body">
+          <div class="d-none msg-confirmation">
+             <p>Merci pour votre inscription</p>
+             <button class="btn-confirmation">Fermer</button>
+          </div>
         </div>
       </div>
     </div>
