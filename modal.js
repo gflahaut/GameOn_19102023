@@ -145,9 +145,9 @@ formulaire.addEventListener("submit", (event) => {
         clearErrorText("errorFirstname");
       }
       /**
-     * Vérification de la longueur du prénom dans le formulaire
-     * @param {HTMLInputElement} inputLastname - L'élément d'entrée HTML du prénom
-     * @returns {boolean} - true si le prénom est valide, sinon false
+     * Vérification de la longueur du nom dans le formulaire
+     * @param {HTMLInputElement} inputLastname - L'élément d'entrée HTML du nom
+     * @returns {boolean} - true si le nom est valide, sinon false
      */
       if (inputLastname.value.length < 2) {
         setErrorText("errorLastname", "Vous n'avez pas précisé de noms !");
