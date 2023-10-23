@@ -31,42 +31,43 @@ window.onload = function () {
  *
  * @param {Event} event - L'événement de soumission du formulaire.
  */
-formulaire.addEventListener("submit", (event) => {
-  // Empêche le comportement par défaut du formulaire (rechargement de la page)
-  event.preventDefault();
-
-  // Vérifie si le formulaire est valide en appelant la fonction checkForm()
-  if (checkForm()) {
-    // Récupère tous les éléments du formulaire
-    const elements = formulaire.elements;
-
-    // Crée un objet pour stocker les données du formulaire
-    const formData = {};
-
-    // Parcourt tous les éléments du formulaire
-    for (let i = 0; i < elements.length; i++) {
-      const element = elements[i];
-
-      // Exclut le bouton de soumission (type "submit")
-      if (element.type !== "submit") {
-        // Associe le nom de l'élément à sa valeur
-        formData[element.name] = element.value;
+  formulaire.addEventListener("submit", (event) => {
+    // Empêche le comportement par défaut du formulaire (rechargement de la page)
+    event.preventDefault();
+  
+    // Vérifie si le formulaire est valide en appelant la fonction checkForm()
+    if (checkForm()) {
+      // Récupère tous les éléments du formulaire
+      const elements = formulaire.elements;
+  
+      // Crée un objet pour stocker les données du formulaire
+      const formData = {};
+  
+      // Parcourt tous les éléments du formulaire
+      for (let i = 0; i < elements.length; i++) {
+        const element = elements[i];
+  
+        // Exclut le bouton de soumission (type "submit")
+        if (element.type !== "submit") {
+          // Associe le nom de l'élément à sa valeur
+          formData[element.name] = element.value;
+        }
       }
+  
+      // Convertit l'objet formData en format JSON
+      const formDataJSON = JSON.stringify(formData);
+  
+      // Stocke les données localement dans le navigateur sous la clé "formData"
+      localStorage.setItem("formData", formDataJSON);
+  
+      // Soumet le formulaire
+      formulaire.submit();
+    } else {
+      // Affiche une alerte si le formulaire contient des erreurs
+      alert("Le formulaire présente de nombreuses erreurs, il ne peut être transmis !");
     }
-
-    // Convertit l'objet formData en format JSON
-    const formDataJSON = JSON.stringify(formData);
-
-    // Stocke les données localement dans le navigateur sous la clé "formData"
-    localStorage.setItem("formData", formDataJSON);
-
-    // Soumet le formulaire
-    formulaire.submit();
-  } else {
-    // Affiche une alerte si le formulaire contient des erreurs
-    alert("Le formulaire présente de nombreuses erreurs, il ne peut être transmis !");
-  }
-});
+  });
+}
 
 
   /**
